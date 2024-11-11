@@ -12,6 +12,10 @@
     <h1 class="title">Weather App</h1>
         <form action="/weather" method="GET">
             <input type="text" name="city" placeholder="Search By City Name" autocomplete="off">
+            <div class="btn">
+                <input type="submit" value="Current" class="submit">
+                <input type="submit" value="Forcast" class="submit">
+            </div>
         </form>
      <div class="card">
         <% if(locals.city2){ %>

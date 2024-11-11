@@ -52,6 +52,21 @@ input , .card{
     border: 2px solid white;
     box-shadow: 5px 5px 5px black;
 }
+.btn{
+    width: 20%;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: flex-start;
+}
+.submit{
+    width: 125px;
+    height: 40px;
+    margin: 20px 5px 0 0;
+    display: inline;
+    padding: 0;
+    cursor: pointer;
+}
 input:focus{
     outline: none;
 }
