@@ -1,46 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.12/css/weather-icons.min.css" integrity="sha512-r/Gan7PMSRovDus++vDS2Ayutc/cSdl268u047n4z+k7GYuR7Hiw71FsT3QQxdKJBVHYttOJ6IGLnlM9IoMToQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.12/css/weather-icons.min.css"
+      integrity="sha512-r/Gan7PMSRovDus++vDS2Ayutc/cSdl268u047n4z+k7GYuR7Hiw71FsT3QQxdKJBVHYttOJ6IGLnlM9IoMToQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="style.css" />
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
     <h1 class="title">Weather App</h1>
-        <form action="/weather" method="GET">
-            <input type="text" name="city" placeholder="Search By City Name" autocomplete="off">
-            <div class="btn">
-                <input type="submit" value="Current" class="submit">
-                <input type="submit" value="Forcast" class="submit">
-            </div>
-        </form>
-     <div class="card">
-        <% if(locals.city2){ %>
-            <h2>Weather Details</h2>
-            <h3 class="searched__city"><%= city2 %></h3>
-            <div class="weather__det">
-                <h3><%= weather %>&deg;C</h3>
-                <img src="<%= iconUrl %>" alt="weather img">
-            </div>
-            <div class="extra__det">
-                <h3><%= wind %> M/S <i class="fa-solid fa-wind"></i></h3>
-                <h3><%= press %> MB <i class="fas fa-tachometer-alt"></i></h3>
-            </div>
-        <% }else{ %>
-            <h1><%= locals.msg %></h1>
-        <% } %>
-     </div>
+    <form action="/weather" method="GET">
+      <input
+        type="text"
+        name="city"
+        placeholder="Search By City Name"
+        autocomplete="off"
+      />
+      <div class="btn">
+        <input type="submit" value="Current" class="submit" />
+        <input type="submit" value="Forcast" class="submit" />
+      </div>
+    </form>
+    <div class="card">
+      <% if(locals.city2){ %>
+      <h2>Weather Details</h2>
+      <h3 class="searched__city"><%= city2 %></h3>
+      <div class="weather__det">
+        <h3><%= weather %>&deg;C</h3>
+        <img src="<%= iconUrl %>" alt="weather img" />
+      </div>
+      <div class="extra__det">
+        <h3><%= wind %> M/S <i class="fa-solid fa-wind"></i></h3>
+        <h3><%= press %> MB <i class="fas fa-tachometer-alt"></i></h3>
+      </div>
+      <% }else{ %>
+      <h1><%= locals.msg %></h1>
+      <% } %>
+    </div>
 
-      <footer>
-        <p class="footer__content">2024 <span>Khaled Fannas.</span> &copy Weather App</p>
-        <div class="social__icons">
-        <a href="https://www.linkedin.com/in/khaled-abu-fannas-7b9992255/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
-        <a href="https://github.com/khalid-fannas" target="_blank"><i class="fa-brands fa-square-github"></i></a>
-        </div>
-      </footer>
-</body>
-
+    <footer>
+      <p class="footer__content">
+        2024 <span>Khaled Fannas.</span> &copy Weather App
+      </p>
+      <div class="social__icons">
+        <a
+          href="https://www.linkedin.com/in/khaled-abu-fannas-7b9992255/"
+          target="_blank"
+          ><i class="fa-brands fa-linkedin"></i
+        ></a>
+        <a href="https://github.com/khalid-fannas" target="_blank"
+          ><i class="fa-brands fa-square-github"></i
+        ></a>
+      </div>
+    </footer>
+  </body>
 </html>
