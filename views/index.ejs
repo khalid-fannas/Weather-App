@@ -18,8 +18,9 @@
       referrerpolicy="no-referrer"
     />
     <link rel="stylesheet" href="style.css" />
-    <title>Document</title>
+    <title>Weather App</title>
   </head>
+
   <body>
     <h1 class="title">Weather App</h1>
     <form action="/weather" method="GET">
@@ -28,14 +29,15 @@
         name="city"
         placeholder="Search By City Name"
         autocomplete="off"
+        value="<%= locals.city2 || locals.cityName || '' %>"
       />
       <div class="btn">
-        <input type="submit" value="Current" class="submit" />
-        <input type="submit" value="Forcast" class="submit" />
+        <input type="submit" name="action" value="Current" class="submit" />
+        <input type="submit" name="action" value="Forecast" class="submit" />
       </div>
     </form>
+    <% if(locals.city2){ %>
     <div class="card">
-      <% if(locals.city2){ %>
       <h2>Weather Details</h2>
       <h3 class="searched__city"><%= city2 %></h3>
       <div class="weather__det">
@@ -44,14 +46,41 @@
       </div>
       <div class="extra__det">
         <h3><%= wind %> M/S <i class="fa-solid fa-wind"></i></h3>
-        <h3><%= press %> MB <i class="fas fa-tachometer-alt"></i></h3>
+        <h3>
+          <%= humidity %>%
+          <img src="/images/humidity.png" alt="humidity" class="humidity" />
+        </h3>
       </div>
-      <% }else{ %>
-      <h1><%= locals.msg %></h1>
-      <% } %>
     </div>
+    <% } else if(locals.forecastData){ %>
 
-    <footer>
+    <div class="container">
+      <div class="days">
+        <% locals.dayBtnChoose.forEach(e =>{ %>
+        <button class="dayChoosed"><%= e.slice(0,3) %></button>
+        <% }) %>
+      </div>
+      <% forecastData.forEach(day => { %>
+
+      <div class="card forecast">
+        <h1><%= day.dayName %></h1>
+        <h2>Weather Details</h2>
+        <h3 class="searched__city"><%= day.cityName %></h3>
+        <div class="weather__det">
+          <h3><%= day.weather %>&deg;C</h3>
+          <img src="<%= day.iconUrl %>" alt="weather img" />
+        </div>
+        <div class="extra__det">
+          <h3><%= day.wind %> M/S <i class="fa-solid fa-wind"></i></h3>
+          <h3>
+            <%= day.humidity %>%
+            <img src="/images/humidity.png" alt="humidity" class="humidity" />
+          </h3>
+        </div>
+      </div>
+      <% }); %> <% } %>
+    </div>
+    <!-- <footer>
       <p class="footer__content">
         2024 <span>Khaled Fannas.</span> &copy Weather App
       </p>
@@ -65,6 +94,6 @@
           ><i class="fa-brands fa-square-github"></i
         ></a>
       </div>
-    </footer>
+    </footer> -->
   </body>
 </html>
