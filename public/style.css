@@ -14,7 +14,7 @@ body {
   align-items: center;
   flex-direction: column;
   gap: 30px;
-  height: 95vh;
+  height: 100vh;
   margin: 0;
   background: linear-gradient(270deg, #069cbd, #097a89, #03afb8);
   background-size: 600% 600%;
@@ -128,27 +128,43 @@ h2::after,
 .container {
   position: relative;
   width: 100%;
+  min-height: 450px;
 }
 .days {
-  position: absolute;
-  top: -22px;
-  left: 48%;
+  min-height: 10px;
+  gap: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .dayChoosed {
   width: 40px;
   cursor: pointer;
   color: white;
   font-family: "Quicksand", sans-serif;
+  transition: all 0.5s;
 }
 .forecast {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
 }
+.card.forecast {
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.card.forecast.active {
+  opacity: 1;
+}
+
+button.dayChoosed.active {
+  background-color: #0c333b;
+  transform: translateY(-5px);
+}
 footer {
-  position: absolute;
-  bottom: 5px;
-  left: 0;
+  margin-top: auto;
+  margin-bottom: 10px;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -157,10 +173,6 @@ footer {
 span {
   font-weight: bold;
   color: #042229;
-}
-.footer__icons {
-  margin: 0;
-  padding: 0;
 }
 .social__icons a {
   margin-left: 10px;
@@ -171,4 +183,68 @@ span {
 }
 .social__icons a:hover {
   transform: translateY(-5px);
+}
+
+@media (max-width: 576px) {
+  .title {
+    font-size: 2.5rem;
+    margin-top: 35px;
+  }
+  body {
+    gap: 15px;
+    height: 100%;
+  }
+  h2 {
+    font-size: 1.25rem;
+  }
+  .card.forecast,
+  .card,
+  .btn,
+  input {
+    width: 75%;
+    font-size: 1rem;
+  }
+  footer {
+    font-size: 1rem;
+  }
+  .card {
+    gap: 20px;
+  }
+  .social__icons a {
+    font-size: 1.15rem;
+  }
+  .container {
+    min-height: 350px;
+  }
+  .weather__img {
+    width: 100px;
+  }
+}
+@media (min-width: 576px) and (max-width: 1000px) {
+  .title {
+    font-size: 3rem;
+    margin-top: 40px;
+  }
+  body {
+    height: 100%;
+  }
+  h2 {
+    font-size: 1.35rem;
+  }
+  .card.forecast,
+  .card,
+  .btn,
+  input {
+    width: 55%;
+    font-size: 1.15rem;
+  }
+  footer {
+    font-size: 1.1rem;
+  }
+  .social__icons a {
+    font-size: 1.25rem;
+  }
+  .weather__img {
+    width: 110px;
+  }
 }
