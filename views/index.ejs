@@ -102,7 +102,7 @@
       <% forecastData.forEach((day , index) => { %>
 
       <div class="card forecast" data-day="<%= index %>">
-        <h1><%= day.dayName %></h1>
+        <h1 class="forecast__day"><%= day.dayName %></h1>
         <h2>Weather Details</h2>
         <h3 class="searched__city"><%= day.cityName %></h3>
         <div class="weather__det">

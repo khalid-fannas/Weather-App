@@ -4,6 +4,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  transition: all 0.3s;
 }
 
 body {
@@ -48,14 +49,14 @@ input {
 input,
 .card,
 .dayChoosed {
-  width: 20%;
+  width: 380px;
   background-color: #145260;
   border-radius: 20px;
   border: 2px solid white;
   box-shadow: 5px 5px 5px black;
 }
 .btn {
-  width: 20%;
+  width: 380px;
   margin-left: 50%;
   transform: translateX(-50%);
   display: flex;
@@ -93,12 +94,14 @@ h2 {
 }
 h2,
 .weather__det,
-.searched__city {
+.searched__city,
+.forecast__day {
   position: relative;
 }
 h2::after,
 .weather__det::after,
-.searched__city::after {
+.searched__city::after,
+.forecast__day::after {
   content: "";
   position: absolute;
   bottom: -15px;
@@ -192,7 +195,6 @@ span {
   }
   body {
     gap: 15px;
-    height: 100%;
   }
   h2 {
     font-size: 1.25rem;
@@ -205,13 +207,13 @@ span {
     font-size: 1rem;
   }
   footer {
-    font-size: 1rem;
+    font-size: 0.85rem;
   }
   .card {
     gap: 20px;
   }
   .social__icons a {
-    font-size: 1.15rem;
+    font-size: 1.1rem;
   }
   .container {
     min-height: 350px;
@@ -222,11 +224,7 @@ span {
 }
 @media (min-width: 576px) and (max-width: 1000px) {
   .title {
-    font-size: 3rem;
     margin-top: 40px;
-  }
-  body {
-    height: 100%;
   }
   h2 {
     font-size: 1.35rem;
@@ -246,5 +244,43 @@ span {
   }
   .weather__img {
     width: 110px;
+  }
+}
+@media (min-width: 800px) and (max-width: 1000px) {
+  .card.forecast,
+  .card,
+  .btn,
+  input {
+    width: 45%;
+  }
+}
+@media (min-width: 1000px) and (max-width: 1200px) {
+  h2 {
+    font-size: 1.45rem;
+  }
+  .card.forecast,
+  .card,
+  .btn,
+  input {
+    width: 40%;
+    font-size: 1.25rem;
+  }
+  footer {
+    font-size: 1.2rem;
+  }
+  .social__icons a {
+    font-size: 1.35rem;
+  }
+}
+@media (min-width: 1200px) and (max-width: 1400px) {
+  h2 {
+    font-size: 1.5rem;
+  }
+  .card.forecast,
+  .card,
+  .btn,
+  input {
+    width: 35%;
+    font-size: 1.35rem;
   }
 }
